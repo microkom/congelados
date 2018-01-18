@@ -1,6 +1,8 @@
 
 package congelados;
 
+import java.util.Calendar;
+
 
 public class Productos {
     
@@ -17,7 +19,7 @@ public class Productos {
     public String getNombre(){
         return this.nombre;
     }
-    public Fecha getFecha(){
+    public Fecha getFechaCad(){
         return this.fechaCad;
     }
     public String getLote(){
@@ -33,12 +35,23 @@ public class Productos {
     public void setLote(String lote){
         this.lote=lote;
     }
-    
+    Calendar cal = Calendar.getInstance();
+        int dia = cal.get(Calendar.DAY_OF_MONTH);
+        int mes = cal.get(Calendar.MONTH) + 1;//hay que agregar 1 porque los meses van de 0 a 11.
+        int anyo = cal.get(Calendar.YEAR);
+
+        Fecha hoy = new Fecha(dia, mes, anyo);
+        
     public String toString(){
         String texto="";
-        texto="\tNombre producto: "+this.nombre+"\n"+
-                "\tFecha caducidad: "+fechaCad.corta()+"\n"+
-                "\tLote: "+lote+"\n";
+        texto+="\tNombre producto: "+this.nombre+"\n"+
+                "\tFecha caducidad: ";
+        if(fechaCad.menorQue(hoy)){
+            texto+="PRODUCTO CADUCADO";
+        }else{
+            texto+=fechaCad.corta();
+                };
+        texto+="\n\tLote: "+lote+"\n";
                 return texto;
     }
     /*

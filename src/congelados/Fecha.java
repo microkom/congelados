@@ -41,4 +41,31 @@ public class Fecha {
     public String corta(){
         return this.day+"-"+this.month+"-"+this.year;
     }
+    
+     public boolean menorQue(Fecha fecha){
+        boolean lower=false;
+        if (this.year < fecha.year ){
+            lower=true;
+        }else if (this.year  == fecha.year && this.month <fecha.month  ){
+            lower=true;
+        }else if ( this.year ==fecha.year && this.month == fecha.month &&  this.day < fecha.day ){ 
+            lower=true;
+        }else{
+            lower=false;
+        }
+        return lower;
+    }
+     public boolean mayorQue(Fecha fecha){
+        boolean upper=false;
+        if (this.year > fecha.year){
+            upper=true;
+        }else if((this.year == fecha.year) && ( this.month >fecha.month ) ){
+            upper=true;
+        }else if((this.year == fecha.year ) && (this.month == fecha.month ) && (this.day > fecha.day )){
+            upper=true;
+        }else{
+            upper=false;
+        }
+        return upper;
+    }
 }
