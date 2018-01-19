@@ -57,11 +57,11 @@ public class Main {
         int anyo = cal.get(Calendar.YEAR);
 
         Fecha hoy = new Fecha(dia, mes, anyo);
-        Fecha antigua = new Fecha(1, 1, 1);
-        Fecha reciente = new Fecha(1, 1, 1);
+        Fecha antigua = null;
+        Fecha reciente = null;
         
-        Productos itemCaducado = new Productos("", new Fecha(1, 1, 1), "");
-        Productos itemCaducado2 = new Productos("", new Fecha(1, 1, 1), "");
+        Productos itemCaducado = null;
+        Productos itemCaducado2 = null;
         contador = 0;
         
         for (int i = 0; i < item.length; i++) {
